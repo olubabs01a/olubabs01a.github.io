@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Portfolio",
-    "currentPage": "index.html",
+    "currentPage": "work-xp.html",
     "theme": {
       "name": "mobirise4",
       "title": "Mobirise 4",
@@ -41,7 +41,7 @@
     "siteFonts": [],
     "versionFirst": "4.7.6",
     "uniqCompNum": 173,
-    "versionPublish": "4.10.5",
+    "versionPublish": "4.10.3",
     "favicon": "",
     "noImageResize": "",
     "screenshot": "screenshot.png",
