@@ -2,7 +2,16 @@
 
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:olubabs01a_site/archives.dart';
+import 'package:olubabs01a_site/contact.dart';
+import 'package:olubabs01a_site/projects.dart';
+import 'package:olubabs01a_site/resume.dart';
 import 'package:provider/provider.dart';
+import 'about.dart';
+import 'extra_curr.dart';
+import 'work.dart';
+import 'coursework.dart';
+import 'favorites.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,12 +25,13 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'olubabs01a',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         home: MyHomePage(),
+        // darkTheme: ThemeData.dark()
       ),
     );
   }
@@ -60,6 +70,8 @@ class MyAppState extends ChangeNotifier {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -78,6 +90,30 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 1:
         page = FavoritesPage();
+        break;
+      case 2:
+        page = AboutPage();
+        break;
+      case 3:
+        page = WorkPage();
+        break;
+      case 4:
+        page = CoursesPage();
+        break;      
+      case 5:
+        page = ProjectsPage();
+        break;
+      case 6:
+        page = ActivitiesPage();
+        break;   
+      case 7:
+        page = ContactPage();
+        break;
+      case 8:
+        page = ArchivesPage();
+        break;
+      case 9:
+        page = ResumePage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -110,9 +146,37 @@ class _MyHomePageState extends State<MyHomePage> {
                         label: 'Home',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'Favorites',
+                        icon: Icon(Icons.person_2_rounded),
+                        label: 'About',
                       ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.work),
+                        label: 'Work Experience',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.school),
+                        label: 'Selected Coursework',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.lightbulb),
+                        label: 'Personal Projects',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.volunteer_activism),
+                        label: 'Extra-Curricular',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.contact_page),
+                        label: 'Contact',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.archive),
+                        label: 'The Archives',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.receipt),
+                        label: 'Download CV',
+                      )
                     ],
                     currentIndex: selectedIndex,
                     onTap: (value) {
@@ -139,8 +203,41 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(Icons.favorite),
                         label: Text('Favorites'),
                       ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.person_2_rounded),
+                        label: Text('About'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.work),
+                        label: Text('Work Experience'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.school),
+                        label: Text('Selected Coursework'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.lightbulb),
+                        label: Text('Personal Projects'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.volunteer_activism),
+                        label: Text('Extra-Curricular'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.contact_page),
+                        label: Text('Contact'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.archive),
+                        label: Text('The Archives'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.receipt),
+                        label: Text('Download CV'),
+                      )
                     ],
                     selectedIndex: selectedIndex,
+                    selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.bold),
                     onDestinationSelected: (value) {
                       setState(() {
                         selectedIndex = value;
@@ -159,6 +256,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class GeneratorPage extends StatelessWidget {
+  const GeneratorPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -247,56 +346,6 @@ class BigCard extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class FavoritesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var appState = context.watch<MyAppState>();
-
-    if (appState.favorites.isEmpty) {
-      return Center(
-        child: Text('No favorites yet.'),
-      );
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(30),
-          child: Text('You have '
-              '${appState.favorites.length} favorites:'),
-        ),
-        Expanded(
-          // Make better use of wide windows with a grid.
-          child: GridView(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 400,
-              childAspectRatio: 400 / 80,
-            ),
-            children: [
-              for (var pair in appState.favorites)
-                ListTile(
-                  leading: IconButton(
-                    icon: Icon(Icons.delete_outline, semanticLabel: 'Delete'),
-                    color: theme.colorScheme.primary,
-                    onPressed: () {
-                      appState.removeFavorite(pair);
-                    },
-                  ),
-                  title: Text(
-                    pair.asLowerCase,
-                    semanticsLabel: pair.asPascalCase,
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
