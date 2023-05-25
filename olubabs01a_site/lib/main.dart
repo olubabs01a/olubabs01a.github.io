@@ -150,31 +150,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
                     items: [
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
+                        icon: Icon(Icons.home_outlined),
+                        activeIcon: Icon(Icons.home),
                         label: 'Home',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.person_2_rounded),
+                        icon: Icon(Icons.person_2_outlined),
+                        activeIcon: Icon(Icons.person_2_rounded),
                         label: 'About',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.work),
+                        icon: Icon(Icons.work_history_outlined),
+                        activeIcon: Icon(Icons.work_history),
                         label: 'Work',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.school),
+                        icon: Icon(Icons.school_outlined),
+                        activeIcon: Icon(Icons.school),
                         label: 'Coursework',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.lightbulb),
+                        icon: Icon(Icons.lightbulb_outlined),
+                        activeIcon: Icon(Icons.lightbulb),
                         label: 'Projects',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.volunteer_activism),
+                        icon: Icon(Icons.volunteer_activism_outlined),
+                        activeIcon: Icon(Icons.volunteer_activism),
                         label: 'Activities',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.contact_page),
+                        icon: Icon(Icons.contact_page_outlined),
+                        activeIcon: Icon(Icons.contact_page),
                         label: 'Contact',
                       ),
                       // BottomNavigationBarItem(
@@ -182,7 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       //   label: 'Archives',
                       // ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.receipt),
+                        icon: Icon(Icons.receipt_outlined),
+                        activeIcon: Icon(Icons.receipt),
                         label: 'Resume',
                       )
                     ],
