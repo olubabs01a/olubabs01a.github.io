@@ -245,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationRailDestination(
                         icon: Icon(Icons.receipt_outlined),
                         selectedIcon: Icon(Icons.receipt),
-                        label: Text('Download CV'),
+                        label: Text('Resume'),
                       )
                     ],
                     selectedIndex: selectedIndex,
