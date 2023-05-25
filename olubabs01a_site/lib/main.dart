@@ -204,31 +204,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     extended: constraints.maxWidth >= 600,
                     destinations: [
                       NavigationRailDestination(
-                        icon: Icon(Icons.home),
+                        icon: Icon(Icons.home_outlined),
+                        selectedIcon: Icon(Icons.home),
                         label: Text('Home'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.person_2_rounded),
+                        icon: Icon(Icons.person_2_outlined),
+                        selectedIcon: Icon(Icons.person_2_rounded),
                         label: Text('About'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.work),
+                        icon: Icon(Icons.work_history_outlined),
+                        selectedIcon: Icon(Icons.work_history),
                         label: Text('Work Experience'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.school),
+                        icon: Icon(Icons.school_outlined),
+                        selectedIcon: Icon(Icons.school),
                         label: Text('Selected Coursework'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.lightbulb),
+                        icon: Icon(Icons.lightbulb_outlined),
+                        selectedIcon: Icon(Icons.lightbulb),
                         label: Text('Personal Projects'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.volunteer_activism),
+                        icon: Icon(Icons.volunteer_activism_outlined),
+                        selectedIcon: Icon(Icons.volunteer_activism),
                         label: Text('Extra-Curricular'),
                       ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.contact_page),
+                        icon: Icon(Icons.contact_page_outlined),
+                        selectedIcon: Icon(Icons.contact_page),
                         label: Text('Contact'),
                       ),
                       // NavigationRailDestination(
@@ -236,7 +243,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       //   label: Text('The Archives'),
                       // ),
                       NavigationRailDestination(
-                        icon: Icon(Icons.receipt),
+                        icon: Icon(Icons.receipt_outlined),
+                        selectedIcon: Icon(Icons.receipt),
                         label: Text('Download CV'),
                       )
                     ],
