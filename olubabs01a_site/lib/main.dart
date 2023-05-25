@@ -17,12 +17,13 @@ void main() {
   runApp(MyApp());
 }
 
+const appTitle = 'Olufunmilola Babalola | Learning. Creating. Being.';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var appTitle = 'Olufunmilola Babalola | Learning. Creating. Being.';
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
@@ -98,13 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 3:
         page = CoursesPage();
-        break;      
+        break;
       case 4:
         page = ProjectsPage();
         break;
       case 5:
         page = ActivitiesPage();
-        break;   
+        break;
       case 6:
         page = ContactPage();
         break;
