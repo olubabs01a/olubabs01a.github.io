@@ -46,15 +46,15 @@ class ContactPageState extends State<ContactPage> {
 
         // Reset all text fields
         _formKey.currentState?.reset();
-
+      } on Exception catch (e) {
+        onError(context, e);
+        rethrow;
+      } finally {
         Timer(const Duration(seconds: 5), () {
           setState(() {
             _emailSent: false;
           });
         });
-      } on Exception catch (e) {
-        onError(context, e);
-        rethrow;
       }
     }
 

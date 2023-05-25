@@ -9,9 +9,9 @@ import 'package:olubabs01a_site/resume.dart';
 import 'package:provider/provider.dart';
 import 'about.dart';
 import 'extra_curr.dart';
+import 'utils/get_material_state_colors.dart';
 import 'work.dart';
 import 'coursework.dart';
-import 'favorites.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,10 +22,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appTitle = 'Olufunmilola Babalola | Learning. Creating. Being.';
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'olubabs01a',
+        title: appTitle,
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -81,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    var theme = Theme.of(context);
+    var colorScheme = theme.colorScheme;
 
     Widget page;
     switch (selectedIndex) {
@@ -89,30 +91,27 @@ class _MyHomePageState extends State<MyHomePage> {
         page = GeneratorPage();
         break;
       case 1:
-        page = FavoritesPage();
-        break;
-      case 2:
         page = AboutPage();
         break;
-      case 3:
+      case 2:
         page = WorkPage();
         break;
-      case 4:
+      case 3:
         page = CoursesPage();
         break;      
-      case 5:
+      case 4:
         page = ProjectsPage();
         break;
-      case 6:
+      case 5:
         page = ActivitiesPage();
         break;   
-      case 7:
+      case 6:
         page = ContactPage();
         break;
-      case 8:
-        page = ArchivesPage();
-        break;
-      case 9:
+      // case 7:
+      //   page = ArchivesPage();
+      //   break;
+      case 7:
         page = ResumePage();
         break;
       default:
@@ -140,6 +139,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(child: mainArea),
                 SafeArea(
                   child: BottomNavigationBar(
+                    type: BottomNavigationBarType.shifting,
+                    showUnselectedLabels: false,
+                    // iconSize: 18.0,
+                    selectedIconTheme: theme.iconTheme,
+                    selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    unselectedIconTheme: theme.iconTheme,
+                    selectedItemColor: getBackgroundColor({}, theme, false),
+                    landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
                     items: [
                       BottomNavigationBarItem(
                         icon: Icon(Icons.home),
@@ -151,31 +158,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.work),
-                        label: 'Work Experience',
+                        label: 'Work',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.school),
-                        label: 'Selected Coursework',
+                        label: 'Coursework',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.lightbulb),
-                        label: 'Personal Projects',
+                        label: 'Projects',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.volunteer_activism),
-                        label: 'Extra-Curricular',
+                        label: 'Activities',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.contact_page),
                         label: 'Contact',
                       ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.archive),
-                        label: 'The Archives',
-                      ),
+                      // BottomNavigationBarItem(
+                      //   icon: Icon(Icons.archive),
+                      //   label: 'Archives',
+                      // ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.receipt),
-                        label: 'Download CV',
+                        label: 'Resume',
                       )
                     ],
                     currentIndex: selectedIndex,
@@ -198,10 +205,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
                         label: Text('Home'),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('Favorites'),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.person_2_rounded),
@@ -227,17 +230,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(Icons.contact_page),
                         label: Text('Contact'),
                       ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.archive),
-                        label: Text('The Archives'),
-                      ),
+                      // NavigationRailDestination(
+                      //   icon: Icon(Icons.archive),
+                      //   label: Text('The Archives'),
+                      // ),
                       NavigationRailDestination(
                         icon: Icon(Icons.receipt),
                         label: Text('Download CV'),
                       )
                     ],
                     selectedIndex: selectedIndex,
-                    selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.bold),
+                    selectedLabelTextStyle: TextStyle(fontWeight: FontWeight.bold, color: colorScheme.inverseSurface),
                     onDestinationSelected: (value) {
                       setState(() {
                         selectedIndex = value;
