@@ -3044,9 +3044,8 @@ section.lazy-placeholder:after {
   background-image: url("../../../assets/images/funmi-10-1014x1351.jpg");
 }
 .cid-rsthBjb1Cn {
-  padding-top: 105px;
-  padding-bottom: 120px;
-  background-image: url("../../../assets/images/mbr-1463x1600.jpg");
+  background-color: #000000;
+  background: linear-gradient(45deg, #000000, #232323);
 }
 @media (min-width: 992px) {
   .cid-rsthBjb1Cn .mbr-figure {
@@ -3444,19 +3443,8 @@ section.lazy-placeholder:after {
 .cid-qTkzRZLJNu .dropdown-item:hover {
   color: #232323 !important;
 }
-.cid-rstjaIE8N9 {
-  padding-top: 45px;
-  padding-bottom: 30px;
-  background-color: #ffffff;
-}
-.cid-rstjaIE8N9 .mbr-text {
-  color: #767676;
-}
-.cid-rstjaIE8N9 .mbr-text p {
-  background: #ffffff;
-}
 .cid-rtCH4UxPMn {
-  padding-top: 60px;
+  padding-top: 75px;
   padding-bottom: 60px;
   background-image: url("../../../assets/images/funmi-207-1336x2000.jpg");
 }
